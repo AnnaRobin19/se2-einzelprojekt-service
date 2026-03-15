@@ -72,4 +72,16 @@ class GameResultServiceTests {
         assertEquals(2, res[1].id)
     }
 
+    // Aufgabe 2.2.3 es fehlt noch ein Test für deleteGameResult
+    @Test
+    fun test_deleteGameResult_existingId_removesObject() {
+        val gameResult = GameResult(0, "player1", 17, 15.3)
+        //Spieler hinzufügen und dann wieder löschen
+        service.addGameResult(gameResult)
+        service.deleteGameResult(1)
+        val res = service.getGameResults()
+        assertEquals(0, res.size)//Liste danach leer
+        assertNull(service.getGameResult(1)) //Spieler mit dieser ID darf nicht mehr existieren
+    }
+
 }

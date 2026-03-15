@@ -29,7 +29,7 @@ class LeaderboardController(
         if (rank <= 0 || rank > sortedResults.size) { //Wenn rank ungültig ist (zu groß oder negativ), soll die Methode mit HTTP 400 antworten
             throw ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid")
         }
-        val index = rank - 1 //rank beginnt bei 1, Listenindex bei 0
+        val index = rank - 1 //rank beginnt bei 1, Listenindex bei 0 Kotlin
         val fromIndex = maxOf(0, index - 3) //Startindex berechnen, max 3 Spieler davor
         val toIndex = minOf(sortedResults.size, index + 4) //Endindex berechnen, max 3 Spieler danach
 
